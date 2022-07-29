@@ -3,66 +3,78 @@ package Entidades;
 
 
 public class Conta {
-	private int saldo;
-	private int transacaoAnterior;
-	private String nomeCliente;
-	private String idCliente;
+	private double saldo;	
 	
-	
-	public Conta() {
+	private String numeroConta;
+	private Clientes cliente;
+
+
+
+	public Conta(Clientes cliente) {
 		
+		this.saldo = 0.0;
+		this.numeroConta = "00121-1";
+		this.cliente = cliente;
 	}
 
 
-	public Conta(int saldo, int transacaoAnterior, String nomeCliente, String idCliente) {
-		this.saldo = saldo;
-		this.transacaoAnterior = transacaoAnterior;
-		this.nomeCliente = nomeCliente;
-		this.idCliente = idCliente;
+	
+	
+	public String getNumeroConta() {
+		return numeroConta;
 	}
 
 
-	public int getTransacaoAnterior() {
-		return transacaoAnterior;
+
+
+	public void setNumeroConta(String numeroConta) {
+		this.numeroConta = numeroConta;
 	}
 
 
-	public void setTransacaoAnterior(int transacaoAnterior) {
-		this.transacaoAnterior = transacaoAnterior;
+
+
+	public Clientes getCliente() {
+		return cliente;
 	}
 
 
-	public String getNomeCliente() {
-		return nomeCliente;
+
+
+	public void setCliente(Clientes cliente) {
+		this.cliente = cliente;
 	}
 
 
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
-	}
 
 
-	public String getIdCliente() {
-		return idCliente;
-	}
-
-
-	public void setIdCliente(String idCliente) {
-		this.idCliente = idCliente;
-	}
-
-
-	public int getSaldo() {
+	public double getSaldo() {
 		return saldo;
 	}
 
 
-	@Override
-	public String toString() {
-		return "Conta [saldo=" + saldo + ", transacaoAnterior=" + transacaoAnterior + ", nomeCliente=" + nomeCliente
-				+ ", idCliente=" + idCliente + "]";
+
+
+	public void deposito(double valor) {
+		this.saldo += valor;
 	}
 	
+	public void saque(double valor)  {
+		
+    	
+            this.saldo -= valor;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "Conta [saldo=" + saldo + ", numeroConta=" + numeroConta + ", cliente=" + cliente + "]";
+	}
+
+
+
 	
 	
 	

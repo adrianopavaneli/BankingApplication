@@ -12,21 +12,21 @@ public class Programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Alimentação Cadastro!");
-		System.out.print("Digite sua idade:");
+		System.out.println("Dados do Cliente! ");
+		System.out.print("Digite sua idade: ");
 		int idade = sc.nextInt();
 		while (idade < 18) {
 			System.out.println("Você precisa ter 18 anos para abrir uma conta!");
-			System.out.print("Digite a idade novamente:");
+			System.out.print("Digite a idade novamente: ");
 			idade = sc.nextInt();
 		}
 		
 		sc.nextLine();
-		System.out.print("Digite seu cpf:");
+		System.out.print("Digite seu cpf: ");
 		String cpf = sc.nextLine();
-		System.out.print("Digite seu nome:");
+		System.out.print("Digite seu nome: ");
 		String nome = sc.nextLine();
-		System.out.print("Digite seu email:");
+		System.out.print("Digite seu email: ");
 		String email = sc.nextLine();
 		
 		Clientes cliente = new Clientes(idade, cpf, nome, email);
@@ -59,14 +59,14 @@ public class Programa {
 		
 		if(option == 'A' ) {
 			System.out.println("***************************");
-			System.out.println("Saldo: " + cc.getSaldo());
+			System.out.printf("Saldo: R$%.2f\n", cc.getSaldo() );
 			System.out.println("***************************");
 			System.out.println();
 			
 			
 		}if(option == 'a' ) {
 			System.out.println("***************************");
-			System.out.println("Saldo: " + cc.getSaldo());
+			System.out.printf("Saldo: R$%.2f\n", cc.getSaldo() );
 			System.out.println("***************************");
 			System.out.println();
 			
@@ -76,7 +76,7 @@ public class Programa {
 			System.out.print("Digite o valor a depositar:");
 			double deposito = sc.nextDouble();
 			cc.deposito(deposito);
-			System.out.println("Novo saldo: " + cc.getSaldo());
+			System.out.printf("Novo saldo: R$%.2f\n ",  cc.getSaldo());
 			System.out.println("***************************");
 			System.out.println();
 			
@@ -86,7 +86,7 @@ public class Programa {
 			System.out.print("Digite o valor a depositar:");
 			double deposito = sc.nextDouble();
 			cc.deposito(deposito);
-			System.out.println("Novo saldo: " + cc.getSaldo());
+			System.out.printf("Novo saldo: R$%.2f\n ",  cc.getSaldo());
 			System.out.println("***************************");
 			System.out.println();
 			
@@ -99,7 +99,7 @@ public class Programa {
 					saque = sc.nextDouble();
 				}
 				cc.saque(saque);
-				System.out.println("Novo saldo: " + cc.getSaldo());
+				System.out.printf("Novo saldo: R$%.2f\n ",  cc.getSaldo());
 				System.out.println("***************************");
 				System.out.println();
 			
@@ -113,7 +113,7 @@ public class Programa {
 					saque = sc.nextDouble();
 				}
 				cc.saque(saque);
-				System.out.println("Novo saldo: " + cc.getSaldo());
+				System.out.printf("Novo saldo: R$%.2f\n ",  cc.getSaldo());
 				System.out.println("***************************");
 				System.out.println();
 			

@@ -44,33 +44,31 @@ public class Programa {
 		System.out.println();
 		System.out.println();
 		
-		char option = '0';
-		while(option != 'D') {
-		System.out.println("A. Saldo");
-		System.out.println("B. Deposito");
-		System.out.println("C. Saque");
-		System.out.println("D. Saida");
+		int option = '0';
+		while(option != '4') {
+		System.out.println("1. Saldo");
+		System.out.println("2. Deposito");
+		System.out.println("3. Saque");
+		System.out.println("4. Saida");
 		
 		System.out.println("**************************************************");
 		System.out.println("Entre com uma opção:");
 		System.out.println("**************************************************");
 			
 		option = sc.next().charAt(0);
+		switch(option) {
 		
-		if(option == 'A' ) {
+		case 1:
+		
 			System.out.println("***************************");
 			System.out.printf("Saldo: R$%.2f\n", cc.getSaldo() );
 			System.out.println("***************************");
 			System.out.println();
+			break;
 			
 			
-		}if(option == 'a' ) {
-			System.out.println("***************************");
-			System.out.printf("Saldo: R$%.2f\n", cc.getSaldo() );
-			System.out.println("***************************");
-			System.out.println();
-			
-		}if(option =='B') {
+		
+		case 2:
 			System.out.println("***************************");
 			System.out.println("Deposito:");
 			System.out.print("Digite o valor a depositar:");
@@ -79,18 +77,10 @@ public class Programa {
 			System.out.printf("Novo saldo: R$%.2f\n ",  cc.getSaldo());
 			System.out.println("***************************");
 			System.out.println();
+			break;
+		
 			
-		}if(option =='b') {
-			System.out.println("***************************");
-			System.out.println("Deposito:");
-			System.out.print("Digite o valor a depositar:");
-			double deposito = sc.nextDouble();
-			cc.deposito(deposito);
-			System.out.printf("Novo saldo: R$%.2f\n ",  cc.getSaldo());
-			System.out.println("***************************");
-			System.out.println();
-			
-		}if(option == 'C') {
+		case 3:
 			System.out.println("Saque:");
 			System.out.print("Digite o valor a sacar:");
 			double saque = sc.nextDouble();
@@ -102,27 +92,13 @@ public class Programa {
 				System.out.printf("Novo saldo: R$%.2f\n ",  cc.getSaldo());
 				System.out.println("***************************");
 				System.out.println();
-			
-		
-		}if(option == 'c') {
-			System.out.println("Saque:");
-			System.out.print("Digite o valor a sacar:");
-			double saque = sc.nextDouble();
-				while(saque > cc.getSaldo() ) {
-					System.out.println("Saldo insuficiente! Digite novo valor:");
-					saque = sc.nextDouble();
-				}
-				cc.saque(saque);
-				System.out.printf("Novo saldo: R$%.2f\n ",  cc.getSaldo());
-				System.out.println("***************************");
-				System.out.println();
-			
-		
-		}
+		break;	
 		
 		
 		
 		}
+		
+		
 		System.out.println();			
 		System.out.println(cliente.getNome() + " obrigado por fazer parte do Banco Azul!");
 		System.out.println("Volte Sempre!");
@@ -134,8 +110,9 @@ public class Programa {
 			
 			
 		
+		
+		}
 		sc.close();
-
 	}
-
 }
+

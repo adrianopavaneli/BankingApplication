@@ -5,19 +5,20 @@ import java.util.Scanner;
 
 import Entidades.Clientes;
 import Entidades.Conta;
+import Entidades.Textos;
 
 public class Programa {
 
 	public static void main(String[] args)  {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Dados do Cliente! ");
-		System.out.print("Digite sua idade: ");
+		Textos texto = new Textos();
+				
+	
+		System.out.println(texto.cabecalho());		
 		int idade = sc.nextInt();
 		while (idade < 18) {
-			System.out.println("Você precisa ter 18 anos para abrir uma conta!");
-			System.out.print("Digite a idade novamente: ");
+			System.out.println(texto.erroIdade());			
 			idade = sc.nextInt();
 		}
 		
@@ -31,13 +32,7 @@ public class Programa {
 		
 		Clientes cliente = new Clientes(idade, cpf, nome, email);
 		Conta cc = new Conta(cliente);
-		
-	
-		
-		System.out.println();
-		
-		
-		
+				
 		System.out.println("Bemvindo ao Banco Azul!");
 		System.out.println("CPF:" + cliente.getCpf());
 		System.out.println("Cliente:" + cliente.getNome());
@@ -46,15 +41,11 @@ public class Programa {
 		
 		int option = '0';
 		while(option != '4') {
-		System.out.println("1. Saldo");
-		System.out.println("2. Deposito");
-		System.out.println("3. Saque");
-		System.out.println("4. Saida");
+		System.out.println(texto.menu());
 		
-		System.out.println("**************************************************");
-		System.out.println("Entre com uma opção:");
-		System.out.println("**************************************************");
-			
+		
+		System.out.println(texto.opcao());
+		
 		option = sc.next().charAt(0);
 		switch(option) {
 		
@@ -69,9 +60,7 @@ public class Programa {
 			
 		
 		case 2:
-			System.out.println("***************************");
-			System.out.println("Deposito:");
-			System.out.print("Digite o valor a depositar:");
+			System.out.println(texto.deposito());			
 			double deposito = sc.nextDouble();
 			cc.deposito(deposito);
 			System.out.printf("Novo saldo: R$%.2f\n ",  cc.getSaldo());
@@ -81,8 +70,8 @@ public class Programa {
 		
 			
 		case 3:
-			System.out.println("Saque:");
-			System.out.print("Digite o valor a sacar:");
+			System.out.println(texto.saque());
+			
 			double saque = sc.nextDouble();
 				while(saque > cc.getSaldo() ) {
 					System.out.println("Saldo insuficiente! Digite novo valor:");
@@ -100,8 +89,7 @@ public class Programa {
 		
 		
 		System.out.println();			
-		System.out.println(cliente.getNome() + " obrigado por fazer parte do Banco Azul!");
-		System.out.println("Volte Sempre!");
+		System.out.println(cliente.getNome() + texto.saida());
 			
 			
 			
